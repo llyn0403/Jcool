@@ -1,4 +1,4 @@
-baseURL: https://llyn0403.github.io/Jcool/
+baseURL: https://jc0ol.github.io/
 languageCode: zh-cn
 theme: hugo-theme-stack
 title: Jcool's Blog
@@ -17,7 +17,7 @@ languages:
         languageName: 中文
         title: Jcool's Blog
         weight: 1
-        baseURL: https://llyn0403.github.io/Jcool/
+        baseURL: https://jc0ol.github.io/
         params:
             sidebar:
                 subtitle: 分享技术与生活的点点滴滴
