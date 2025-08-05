@@ -1,0 +1,713 @@
+/* 自定义主题样式 - 动态背景和深空/纯净模式 */
+
+/* 动态背景动画 */
+@keyframes starfield {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100vh); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+/* 深空模式 */
+[data-scheme="deep-space"] {
+    --body-background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+    --accent-color: #64ffda;
+    --accent-color-darker: #4fd3a7;
+    --accent-color-text: #0c0c0c;
+    --body-text-color: rgba(255, 255, 255, 0.87);
+    --scrollbar-thumb: hsl(180, 100%, 70%);
+    --scrollbar-track: rgba(0, 0, 0, 0.3);
+    
+    /* 卡片样式 */
+    --card-background: rgba(30, 30, 60, 0.8);
+    --card-background-selected: rgba(100, 255, 218, 0.1);
+    --card-text-color-main: rgba(255, 255, 255, 0.95);
+    --card-text-color-secondary: rgba(255, 255, 255, 0.75);
+    --card-text-color-tertiary: rgba(255, 255, 255, 0.6);
+    --card-separator-color: rgba(100, 255, 218, 0.2);
+    
+    /* 代码块样式 */
+    --code-background-color: rgba(12, 12, 12, 0.8);
+    --code-text-color: #64ffda;
+    --pre-background-color: rgba(12, 12, 12, 0.9);
+    --pre-text-color: #e8f5e8;
+    
+    /* 表格样式 */
+    --table-border-color: #64ffda;
+    --tr-even-background-color: rgba(100, 255, 218, 0.05);
+    
+    /* 引用块样式 */
+    --blockquote-background-color: rgba(30, 30, 60, 0.6);
+}
+
+/* 暗色模式增强 */
+[data-scheme="dark"] {
+    --body-background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+    --accent-color: #ff6b6b;
+    --accent-color-darker: #ff5252;
+    --accent-color-text: #ffffff;
+    --body-text-color: rgba(255, 255, 255, 0.85);
+    --scrollbar-thumb: hsl(0, 70%, 65%);
+    --scrollbar-track: rgba(0, 0, 0, 0.4);
+    
+    /* 卡片样式 */
+    --card-background: rgba(45, 45, 45, 0.9);
+    --card-background-selected: rgba(255, 107, 107, 0.1);
+    --card-text-color-main: rgba(255, 255, 255, 0.95);
+    --card-text-color-secondary: rgba(255, 255, 255, 0.75);
+    --card-text-color-tertiary: rgba(255, 255, 255, 0.6);
+    --card-separator-color: rgba(255, 107, 107, 0.2);
+    
+    /* 代码块样式 */
+    --code-background-color: rgba(30, 30, 30, 0.8);
+    --code-text-color: #ff6b6b;
+    --pre-background-color: rgba(20, 20, 20, 0.9);
+    --pre-text-color: #f5e8e8;
+    
+    /* 表格样式 */
+    --table-border-color: #ff6b6b;
+    --tr-even-background-color: rgba(255, 107, 107, 0.05);
+    
+    /* 引用块样式 */
+    --blockquote-background-color: rgba(45, 30, 30, 0.6);
+}
+
+/* 亮色模式增强 */
+[data-scheme="light"] {
+    --body-background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
+    --accent-color: #007bff;
+    --accent-color-darker: #0056b3;
+    --accent-color-text: #ffffff;
+    --body-text-color: #495057;
+    --scrollbar-thumb: hsl(210, 100%, 60%);
+    --scrollbar-track: rgba(255, 255, 255, 0.8);
+    
+    /* 卡片样式 */
+    --card-background: rgba(255, 255, 255, 0.95);
+    --card-background-selected: rgba(0, 123, 255, 0.05);
+    --card-text-color-main: #212529;
+    --card-text-color-secondary: #495057;
+    --card-text-color-tertiary: #6c757d;
+    --card-separator-color: rgba(0, 123, 255, 0.2);
+    
+    /* 代码块样式 */
+    --code-background-color: rgba(248, 249, 250, 0.8);
+    --code-text-color: #007bff;
+    --pre-background-color: #f8f9fa;
+    --pre-text-color: #495057;
+    
+    /* 表格样式 */
+    --table-border-color: #007bff;
+    --tr-even-background-color: rgba(0, 123, 255, 0.05);
+    
+    /* 引用块样式 */
+    --blockquote-background-color: rgba(230, 240, 255, 0.8);
+}
+
+/* 纯净模式 */
+[data-scheme="pure"] {
+    --body-background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 25%, #e9ecef 50%, #dee2e6 75%, #ced4da 100%);
+    --accent-color: #495057;
+    --accent-color-darker: #343a40;
+    --accent-color-text: #ffffff;
+    --body-text-color: #495057;
+    --scrollbar-thumb: hsl(210, 16%, 82%);
+    --scrollbar-track: rgba(255, 255, 255, 0.8);
+    
+    /* 卡片样式 */
+    --card-background: rgba(255, 255, 255, 0.9);
+    --card-background-selected: rgba(73, 80, 87, 0.05);
+    --card-text-color-main: #212529;
+    --card-text-color-secondary: #495057;
+    --card-text-color-tertiary: #6c757d;
+    --card-separator-color: rgba(73, 80, 87, 0.1);
+    
+    /* 代码块样式 */
+    --code-background-color: rgba(248, 249, 250, 0.8);
+    --code-text-color: #495057;
+    --pre-background-color: #f8f9fa;
+    --pre-text-color: #495057;
+    
+    /* 表格样式 */
+    --table-border-color: #dee2e6;
+    --tr-even-background-color: rgba(248, 249, 250, 0.5);
+    
+    /* 引用块样式 */
+    --blockquote-background-color: rgba(248, 249, 250, 0.8);
+}
+
+/* 动态背景容器 */
+body {
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--body-background);
+    z-index: -2;
+}
+
+/* 动态渐变背景基础层 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* 深空模式背景 - 动态渐变 */
+[data-scheme="deep-space"] body::before {
+    background: linear-gradient(-45deg, #0f0f23, #1a1a2e, #16213e, #0f1419, #1e3a8a);
+    background-size: 400% 400%;
+    animation: deepSpaceGradient 15s ease infinite;
+}
+
+/* 暗色模式背景 - 动态渐变 */
+[data-scheme="dark"] body::before {
+    background: linear-gradient(-45deg, #1a1a1a, #2d2d2d, #1f1f1f, #262626, #1c1c1c);
+    background-size: 400% 400%;
+    animation: darkGradient 18s ease infinite;
+}
+
+/* 亮色模式背景 - 动态渐变 */
+[data-scheme="light"] body::before {
+    background: linear-gradient(-45deg, #ffffff, #f8f9fa, #e9ecef, #f0f8ff, #f5f7fa);
+    background-size: 400% 400%;
+    animation: lightGradient 14s ease infinite;
+}
+
+/* 纯净模式背景 - 动态渐变 */
+[data-scheme="pure"] body::before {
+    background: linear-gradient(-45deg, #f8fafc, #e2e8f0, #cbd5e1, #f1f5f9, #e0e7ff);
+    background-size: 400% 400%;
+    animation: pureGradient 12s ease infinite;
+}
+
+/* 深空模式的动态星空背景 */
+[data-scheme="deep-space"] body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #64ffda, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(100, 255, 218, 0.8), transparent),
+        radial-gradient(1px 1px at 90px 40px, #64ffda, transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(100, 255, 218, 0.6), transparent),
+        radial-gradient(2px 2px at 160px 30px, #64ffda, transparent),
+        radial-gradient(1px 1px at 200px 50px, rgba(100,255,218,0.7), transparent),
+        radial-gradient(2px 2px at 250px 90px, #64ffda, transparent),
+        radial-gradient(1px 1px at 300px 20px, rgba(100,255,218,0.5), transparent),
+        radial-gradient(3px 3px at 180px 120px, #64ffda, transparent),
+        radial-gradient(1px 1px at 320px 80px, rgba(100,255,218,0.9), transparent);
+    background-repeat: repeat;
+    background-size: 400px 250px;
+    animation: starfield 20s linear infinite, drift 35s ease-in-out infinite, sparkle 25s ease-in-out infinite;
+    z-index: -1;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+/* 深空模式流星效果 */
+[data-scheme="deep-space"] body::after {
+    content: '';
+    position: fixed;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #64ffda, transparent);
+    animation: meteor 8s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+}
+
+/* 背景渐变动画 */
+@keyframes deepSpaceGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes darkGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes lightGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes pureGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes meteor {
+    0% {
+        transform: translateX(-200px) translateY(-200px) rotate(45deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(calc(100vw + 200px)) translateY(calc(100vh + 200px)) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+@keyframes drift {
+    0%, 100% {
+        transform: translateX(0) translateY(0);
+    }
+    25% {
+        transform: translateX(10px) translateY(-5px);
+    }
+    50% {
+        transform: translateX(-5px) translateY(10px);
+    }
+    75% {
+        transform: translateX(-10px) translateY(-10px);
+    }
+}
+
+/* 暗色模式动态效果 */
+[data-scheme="dark"] body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 30% 20%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(255, 107, 107, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 20% 70%, rgba(255, 107, 107, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(255, 107, 107, 0.05) 0%, transparent 35%),
+        radial-gradient(2px 2px at 25% 35%, rgba(255, 107, 107, 0.7), transparent),
+        radial-gradient(1px 1px at 65% 25%, rgba(255, 107, 107, 0.5), transparent),
+        radial-gradient(3px 3px at 45% 75%, rgba(255, 107, 107, 0.6), transparent),
+        radial-gradient(1px 1px at 85% 65%, rgba(255, 107, 107, 0.4), transparent);
+    background-size: 400px 400px, 350px 350px, 300px 300px, 450px 450px,
+                     120px 120px, 150px 150px, 100px 100px, 180px 180px;
+    animation: darkPulse 12s ease-in-out infinite, float 18s ease-in-out infinite, particleFloat 25s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+@keyframes darkPulse {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+}
+
+/* 亮色模式动态效果 */
+[data-scheme="light"] body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 40% 30%, rgba(0, 123, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 60% 70%, rgba(0, 123, 255, 0.06) 0%, transparent 45%),
+        radial-gradient(circle at 20% 60%, rgba(0, 123, 255, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 80% 40%, rgba(0, 123, 255, 0.04) 0%, transparent 35%),
+        radial-gradient(2px 2px at 35% 25%, rgba(0, 123, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 75% 45%, rgba(0, 123, 255, 0.4), transparent),
+        radial-gradient(3px 3px at 15% 65%, rgba(0, 123, 255, 0.5), transparent),
+        radial-gradient(1px 1px at 55% 85%, rgba(0, 123, 255, 0.3), transparent);
+    background-size: 400px 400px, 350px 350px, 300px 300px, 450px 450px,
+                     140px 140px, 160px 160px, 110px 110px, 190px 190px;
+    animation: lightShimmer 10s ease-in-out infinite, float 16s ease-in-out infinite, particleFloat 22s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+@keyframes lightShimmer {
+    0%, 100% {
+        opacity: 0.6;
+        transform: translateX(0) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(20px) rotate(1deg);
+    }
+}
+
+/* 纯净模式浮动粒子效果 */
+[data-scheme="pure"] body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.15), transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15), transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.15), transparent 50%),
+        radial-gradient(circle at 60% 70%, rgba(255, 200, 120, 0.1), transparent 40%),
+        radial-gradient(circle at 90% 90%, rgba(200, 255, 120, 0.1), transparent 40%),
+        /* 添加浮动粒子效果 */
+        radial-gradient(2px 2px at 15% 25%, rgba(120, 119, 198, 0.8), transparent),
+        radial-gradient(1px 1px at 35% 45%, rgba(255, 119, 198, 0.6), transparent),
+        radial-gradient(3px 3px at 65% 15%, rgba(120, 219, 255, 0.7), transparent),
+        radial-gradient(1px 1px at 85% 75%, rgba(255, 200, 120, 0.5), transparent),
+        radial-gradient(2px 2px at 25% 85%, rgba(200, 255, 120, 0.6), transparent);
+    background-size: 400px 400px, 350px 350px, 300px 300px, 450px 450px, 380px 380px,
+                     100px 100px, 150px 150px, 120px 120px, 180px 180px, 160px 160px;
+    animation: float 25s ease-in-out infinite, pulse 15s ease-in-out infinite, particleFloat 30s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 纯净模式光晕效果 */
+[data-scheme="pure"] body::after {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(120, 119, 198, 0.05), transparent 70%);
+    transform: translate(-50%, -50%);
+    animation: glow 20s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes glow {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+    50% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1.2) rotate(180deg);
+    }
+}
+
+/* 粒子浮动动画 */
+@keyframes particleFloat {
+    0% {
+        background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,
+                             0px 0px, 50px 20px, 100px 10px, 150px 30px, 200px 15px;
+    }
+    25% {
+        background-position: 25% 25%, 30% 20%, 20% 30%, 35% 25%, 25% 35%,
+                             20px -10px, 70px 40px, 120px -5px, 170px 50px, 220px 35px;
+    }
+    50% {
+        background-position: 50% 50%, 60% 40%, 40% 60%, 70% 50%, 50% 70%,
+                             40px 20px, 90px 60px, 140px 15px, 190px 70px, 240px 55px;
+    }
+    75% {
+        background-position: 75% 75%, 90% 60%, 60% 90%, 105% 75%, 75% 105%,
+                             60px 10px, 110px 80px, 160px 5px, 210px 90px, 260px 75px;
+    }
+    100% {
+        background-position: 100% 100%, 120% 80%, 80% 120%, 140% 100%, 100% 140%,
+                             80px 30px, 130px 100px, 180px 25px, 230px 110px, 280px 95px;
+    }
+}
+
+/* 波纹效果动画 */
+@keyframes ripple {
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2.4);
+        opacity: 0;
+    }
+}
+
+/* 闪烁效果 */
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 卡片增强效果 */
+[data-scheme="deep-space"] .article-list--tile .article {
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(100, 255, 218, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(100, 255, 218, 0.1);
+    transition: all 0.3s ease;
+}
+
+[data-scheme="deep-space"] .article-list--tile .article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(100, 255, 218, 0.2);
+    border-color: rgba(100, 255, 218, 0.4);
+}
+
+[data-scheme="pure"] .article-list--tile .article {
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(73, 80, 87, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+[data-scheme="pure"] .article-list--tile .article:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    border-color: rgba(73, 80, 87, 0.2);
+}
+
+/* 侧边栏增强 */
+[data-scheme="deep-space"] .left-sidebar {
+    backdrop-filter: blur(15px);
+    background: rgba(30, 30, 60, 0.7);
+    border-right: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+[data-scheme="pure"] .left-sidebar {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.8);
+    border-right: 1px solid rgba(73, 80, 87, 0.1);
+}
+
+/* 头像发光效果 */
+[data-scheme="deep-space"] .sidebar header .site-avatar .site-logo {
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+/* 菜单项增强 */
+[data-scheme="deep-space"] .menu .menu-item {
+    transition: all 0.3s ease;
+}
+
+[data-scheme="deep-space"] .menu .menu-item:hover {
+    background: rgba(100, 255, 218, 0.1);
+    transform: translateX(5px);
+}
+
+[data-scheme="pure"] .menu .menu-item:hover {
+    background: rgba(73, 80, 87, 0.05);
+    transform: translateX(3px);
+}
+
+/* 搜索框增强 */
+[data-scheme="deep-space"] .search-form input {
+    background: rgba(30, 30, 60, 0.8);
+    border: 1px solid rgba(100, 255, 218, 0.3);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+[data-scheme="deep-space"] .search-form input:focus {
+    border-color: #64ffda;
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+}
+
+[data-scheme="pure"] .search-form input {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(73, 80, 87, 0.2);
+}
+
+[data-scheme="pure"] .search-form input:focus {
+    border-color: #495057;
+    box-shadow: 0 0 5px rgba(73, 80, 87, 0.2);
+}
+
+/* 标签云增强 */
+[data-scheme="deep-space"] .tagCloud .tagCloud-item {
+    background: rgba(100, 255, 218, 0.1);
+    border: 1px solid rgba(100, 255, 218, 0.3);
+    color: #64ffda;
+    transition: all 0.3s ease;
+}
+
+[data-scheme="deep-space"] .tagCloud .tagCloud-item:hover {
+    background: rgba(100, 255, 218, 0.2);
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+}
+
+[data-scheme="pure"] .tagCloud .tagCloud-item {
+    background: rgba(73, 80, 87, 0.05);
+    border: 1px solid rgba(73, 80, 87, 0.2);
+    transition: all 0.3s ease;
+}
+
+[data-scheme="pure"] .tagCloud .tagCloud-item:hover {
+    background: rgba(73, 80, 87, 0.1);
+    transform: scale(1.03);
+}
+
+/* 卡片悬停效果增强 */
+.article-list--tile .article {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-scheme="deep-space"] .article-list--tile .article:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(100, 255, 218, 0.3);
+    border: 1px solid rgba(100, 255, 218, 0.5);
+}
+
+[data-scheme="dark"] .article-list--tile .article:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 15px 30px rgba(255, 107, 107, 0.3);
+    border: 1px solid rgba(255, 107, 107, 0.4);
+}
+
+[data-scheme="light"] .article-list--tile .article:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.2);
+    border: 1px solid rgba(0, 123, 255, 0.3);
+}
+
+[data-scheme="pure"] .article-list--tile .article:hover {
+    transform: translateY(-5px) scale(1.015);
+    box-shadow: 0 12px 28px rgba(120, 119, 198, 0.25);
+    border: 1px solid rgba(120, 119, 198, 0.4);
+}
+
+/* 侧边栏动画增强 */
+.sidebar {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-scheme="deep-space"] .sidebar:hover {
+    box-shadow: 0 0 30px rgba(100, 255, 218, 0.2);
+}
+
+[data-scheme="dark"] .sidebar:hover {
+    box-shadow: 0 0 25px rgba(255, 107, 107, 0.2);
+}
+
+[data-scheme="light"] .sidebar:hover {
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.15);
+}
+
+[data-scheme="pure"] .sidebar:hover {
+    box-shadow: 0 0 25px rgba(120, 119, 198, 0.2);
+}
+
+/* 主题切换动画 */
+body {
+    transition: background 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.article, .sidebar, .search-form {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+    [data-scheme="deep-space"] body::after,
+    [data-scheme="pure"] body::after {
+        animation-duration: 30s;
+    }
+    
+    /* 移动端减少动画强度 */
+    .article-list--tile .article:hover {
+        transform: translateY(-2px) scale(1.005);
+    }
+}
+
+/* 滚动条美化 */
+[data-scheme="deep-space"] ::-webkit-scrollbar {
+    width: 8px;
+}
+
+[data-scheme="deep-space"] ::-webkit-scrollbar-track {
+    background: rgba(30, 30, 60, 0.5);
+}
+
+[data-scheme="deep-space"] ::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #64ffda, #4fd3a7);
+    border-radius: 4px;
+}
+
+[data-scheme="deep-space"] ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #4fd3a7, #64ffda);
+}
+
+[data-scheme="pure"] ::-webkit-scrollbar {
+    width: 6px;
+}
+
+[data-scheme="pure"] ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+[data-scheme="pure"] ::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #495057, #6c757d);
+    border-radius: 3px;
+}
+
+[data-scheme="pure"] ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #343a40, #495057);
+}

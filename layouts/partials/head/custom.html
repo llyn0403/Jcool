@@ -1,0 +1,353 @@
+<!-- 自定义主题样式和脚本 -->
+
+<!-- 主题切换器样式增强 -->
+<style>
+    /* 主题切换按钮位置优化 */
+    .left-sidebar {
+        position: relative;
+    }
+    
+    #theme-toggle, #dark-mode-toggle {
+        position: relative;
+        width: calc(100% - 20px);
+        margin: 10px;
+        background: var(--card-background);
+        border: 1px solid var(--card-separator-color);
+        border-radius: 8px;
+        padding: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--card-text-color-main);
+        font-size: 14px;
+        font-weight: 500;
+    }
+    
+    #theme-toggle:hover, #dark-mode-toggle:hover {
+        background: var(--card-background-selected);
+        transform: translateY(-2px);
+    }
+    
+    /* 深空模式特效 */
+    [data-scheme="deep-space"] #theme-toggle,
+    [data-scheme="deep-space"] #dark-mode-toggle {
+        background: rgba(30, 30, 60, 0.8);
+        border-color: rgba(100, 255, 218, 0.3);
+        box-shadow: 0 0 15px rgba(100, 255, 218, 0.2);
+    }
+    
+    [data-scheme="deep-space"] #theme-toggle:hover,
+    [data-scheme="deep-space"] #dark-mode-toggle:hover {
+        box-shadow: 0 0 25px rgba(100, 255, 218, 0.3);
+        border-color: rgba(100, 255, 218, 0.5);
+    }
+    
+    /* 纯净模式特效 */
+    [data-scheme="pure"] #theme-toggle,
+    [data-scheme="pure"] #dark-mode-toggle {
+        background: rgba(255, 255, 255, 0.9);
+        border-color: rgba(73, 80, 87, 0.2);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    [data-scheme="pure"] #theme-toggle:hover,
+    [data-scheme="pure"] #dark-mode-toggle:hover {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* 新主题切换器样式 */
+    #theme-toggle {
+        position: relative;
+        width: calc(100% - 20px);
+        margin: 10px;
+    }
+    
+    .theme-toggle-btn {
+        background: var(--card-background);
+        border: 1px solid var(--card-separator-color);
+        border-radius: 8px;
+        padding: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--card-text-color-main);
+        font-size: 14px;
+        font-weight: 500;
+        user-select: none;
+    }
+    
+    .theme-toggle-btn:hover {
+        background: var(--card-background-selected);
+        transform: translateY(-2px);
+    }
+    
+    .theme-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--card-background);
+        border: 1px solid var(--card-separator-color);
+        border-radius: 8px;
+        margin-top: 5px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        overflow: hidden;
+    }
+    
+    .theme-option {
+        padding: 12px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--card-text-color-main);
+        font-size: 14px;
+    }
+    
+    .theme-option:hover {
+        background: var(--card-background-selected);
+    }
+    
+    .theme-icon {
+        font-size: 16px;
+        width: 20px;
+        text-align: center;
+    }
+    
+    .dropdown-arrow {
+        font-size: 12px;
+        transition: transform 0.3s ease;
+    }
+    
+    /* 深空模式特效 */
+    [data-scheme="deep-space"] .theme-toggle-btn {
+        background: rgba(30, 30, 60, 0.8);
+        border-color: rgba(100, 255, 218, 0.3);
+        box-shadow: 0 0 15px rgba(100, 255, 218, 0.2);
+    }
+    
+    [data-scheme="deep-space"] .theme-toggle-btn:hover {
+        box-shadow: 0 0 25px rgba(100, 255, 218, 0.3);
+        border-color: rgba(100, 255, 218, 0.5);
+    }
+    
+    [data-scheme="deep-space"] .theme-menu {
+        background: rgba(30, 30, 60, 0.9);
+        border-color: rgba(100, 255, 218, 0.3);
+        box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+    }
+    
+    [data-scheme="deep-space"] .theme-option:hover {
+        background: rgba(100, 255, 218, 0.1);
+    }
+    
+    /* 纯净模式特效 */
+    [data-scheme="pure"] .theme-toggle-btn {
+        background: rgba(255, 255, 255, 0.9);
+        border-color: rgba(73, 80, 87, 0.2);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    [data-scheme="pure"] .theme-toggle-btn:hover {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    [data-scheme="pure"] .theme-menu {
+        background: rgba(255, 255, 255, 0.95);
+        border-color: rgba(73, 80, 87, 0.2);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    [data-scheme="pure"] .theme-option:hover {
+        background: rgba(73, 80, 87, 0.05);
+    }
+    
+    /* 响应式优化 */
+    @media (max-width: 768px) {
+        #theme-toggle {
+            margin: 5px;
+        }
+        
+        .theme-toggle-btn {
+            padding: 10px;
+            font-size: 13px;
+        }
+        
+        .theme-option {
+            padding: 10px;
+            font-size: 13px;
+        }
+    }
+</style>
+
+<!-- 主题切换器脚本 -->
+<script>
+// 立即应用保存的主题，避免闪烁
+(function() {
+    const savedTheme = localStorage.getItem('theme') || 'deep-space';
+    document.documentElement.setAttribute('data-scheme', savedTheme);
+})();
+
+// 增强的主题切换器
+class ThemeSwitcher {
+    constructor() {
+        this.themes = [
+            { name: 'light', displayName: '亮色模式', icon: '☀️' },
+            { name: 'dark', displayName: '暗色模式', icon: '🌙' },
+            { name: 'deep-space', displayName: '深空模式', icon: '🌌' },
+            { name: 'pure', displayName: '纯净模式', icon: '✨' }
+        ];
+        this.currentTheme = this.getStoredTheme() || 'deep-space';
+        this.init();
+    }
+
+    init() {
+        // 等待DOM加载完成
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => this.setupThemeToggle());
+        } else {
+            this.setupThemeToggle();
+        }
+    }
+
+    setupThemeToggle() {
+        const toggleButton = document.getElementById('dark-mode-toggle');
+        if (toggleButton) {
+            this.replaceToggleButton(toggleButton);
+        }
+    }
+
+    replaceToggleButton(originalButton) {
+        // 创建新的主题切换器
+        const themeToggle = document.createElement('div');
+        themeToggle.id = 'theme-toggle';
+        themeToggle.innerHTML = `
+            <div class="theme-toggle-btn">
+                <span class="theme-icon">${this.getCurrentThemeIcon()}</span>
+                <span class="theme-name">${this.getCurrentThemeName()}</span>
+                <span class="dropdown-arrow">▼</span>
+            </div>
+            <div class="theme-menu" style="display: none;">
+                ${this.themes.map(theme => `
+                    <div class="theme-option" data-theme="${theme.name}">
+                        <span class="theme-icon">${theme.icon}</span>
+                        <span class="theme-name">${theme.displayName}</span>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+
+        // 替换原按钮
+        originalButton.parentNode.replaceChild(themeToggle, originalButton);
+
+        // 绑定事件
+        this.bindEvents(themeToggle);
+    }
+
+    bindEvents(themeToggle) {
+        const toggleBtn = themeToggle.querySelector('.theme-toggle-btn');
+        const themeMenu = themeToggle.querySelector('.theme-menu');
+        const themeOptions = themeToggle.querySelectorAll('.theme-option');
+
+        // 切换菜单显示
+        toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            themeMenu.style.display = themeMenu.style.display === 'none' ? 'block' : 'none';
+        });
+
+        // 主题选择
+        themeOptions.forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const themeName = option.dataset.theme;
+                this.applyTheme(themeName);
+                themeMenu.style.display = 'none';
+                this.updateToggleButton(themeToggle);
+            });
+        });
+
+        // 点击外部关闭菜单
+        document.addEventListener('click', () => {
+            themeMenu.style.display = 'none';
+        });
+    }
+
+    applyTheme(themeName) {
+        this.currentTheme = themeName;
+        document.documentElement.setAttribute('data-scheme', themeName);
+        localStorage.setItem('theme', themeName);
+        this.showNotification(`已切换到${this.getCurrentThemeName()}`);
+    }
+
+    updateToggleButton(themeToggle) {
+        const iconSpan = themeToggle.querySelector('.theme-toggle-btn .theme-icon');
+        const nameSpan = themeToggle.querySelector('.theme-toggle-btn .theme-name');
+        iconSpan.textContent = this.getCurrentThemeIcon();
+        nameSpan.textContent = this.getCurrentThemeName();
+    }
+
+    getCurrentThemeIcon() {
+        const theme = this.themes.find(t => t.name === this.currentTheme);
+        return theme ? theme.icon : '🌌';
+    }
+
+    getCurrentThemeName() {
+        const theme = this.themes.find(t => t.name === this.currentTheme);
+        return theme ? theme.displayName : '深空模式';
+    }
+
+    getStoredTheme() {
+        return localStorage.getItem('theme');
+    }
+
+    showNotification(message) {
+        // 创建通知元素
+        const notification = document.createElement('div');
+        notification.className = 'theme-notification';
+        notification.textContent = message;
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--card-background);
+            color: var(--card-text-color-main);
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 10000;
+            font-size: 14px;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.3s ease;
+        `;
+
+        document.body.appendChild(notification);
+
+        // 显示动画
+        setTimeout(() => {
+            notification.style.opacity = '1';
+            notification.style.transform = 'translateX(0)';
+        }, 10);
+
+        // 自动隐藏
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateX(100%)';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
+        }, 2000);
+    }
+}
+
+// 初始化主题切换器
+new ThemeSwitcher();
+</script>
