@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pages on Jcool's Blog</title><link>https://jc0ol.github.io/page/</link><description>Recent content in Pages on Jcool's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>© 2024 Jcool. All rights reserved.</copyright><lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://jc0ol.github.io/page/index.xml" rel="self" type="application/rss+xml"/><item><title>Archives</title><link>https://jc0ol.github.io/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://jc0ol.github.io/archives/</guid><description/></item><item><title>Search</title><link>https://jc0ol.github.io/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jc0ol.github.io/search/</guid><description/></item><item><title>关于</title><link>https://jc0ol.github.io/%E5%85%B3%E4%BA%8E/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jc0ol.github.io/%E5%85%B3%E4%BA%8E/</guid><description>&lt;p>This is a test page for i18n support.&lt;/p></description></item><item><title>友情链接</title><link>https://jc0ol.github.io/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jc0ol.github.io/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/</guid><description>&lt;h2 id="-友情链接">🔗 友情链接
+&lt;/h2>&lt;p>这里收集了一些我经常访问的优质技术网站和资源，希望对你的学习和工作有所帮助。&lt;/p>
+&lt;h3 id="-学习资源">📚 学习资源
+&lt;/h3>&lt;p>这些网站提供了丰富的学习资料和文档：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>MDN Web Docs&lt;/strong> - Web开发的权威参考&lt;/li>
+&lt;li>&lt;strong>Stack Overflow&lt;/strong> - 编程问题的最佳解答平台&lt;/li>
+&lt;/ul>
+&lt;h3 id="-开发工具">🛠️ 开发工具
+&lt;/h3>&lt;p>提高开发效率的工具和平台：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>GitHub&lt;/strong> - 代码托管和协作&lt;/li>
+&lt;li>&lt;strong>Docker&lt;/strong> - 容器化解决方案&lt;/li>
+&lt;/ul>
+&lt;h3 id="-技术框架">🌟 技术框架
+&lt;/h3>&lt;p>现代Web开发的热门框架：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Vue.js&lt;/strong> - 渐进式前端框架&lt;/li>
+&lt;li>&lt;strong>React&lt;/strong> - 组件化UI库&lt;/li>
+&lt;li>&lt;strong>Node.js&lt;/strong> - 服务端JavaScript&lt;/li>
+&lt;/ul>
+&lt;h3 id="-技术博客">📖 技术博客
+&lt;/h3>&lt;p>值得关注的技术博客和社区：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>阮一峰的网络日志&lt;/strong> - 深入浅出的技术文章&lt;/li>
+&lt;li>&lt;strong>掘金&lt;/strong> - 中文技术社区&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>如果你有好的网站推荐，欢迎通过邮件或GitHub联系我！&lt;/p></description></item></channel></rss>
